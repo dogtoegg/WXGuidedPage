@@ -1,2 +1,2 @@
-# WXGuidedPage
-WeChat guided customer to share page
+# leadingPage
+微信引导页

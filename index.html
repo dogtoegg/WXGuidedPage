@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750">
+    <title></title>
+    <style type="text/css">
+        html body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+        .container {
+            width: 750px;
+            margin: 0 auto;
+            height: 1334px;
+            background: url(img/vv365_back.png) no-repeat 0 0;
+            background-size: 750px 1334px;
+        }
+
+        .content {
+            display: block;
+            text-align: center;
+        }
+
+        .content-container {
+            display: block;
+            padding-top: 300px;
+        }
+
+        .content-container button {
+            width: 400px;
+            height: 60px;
+            margin: 25px;
+            border: 0;
+            background: red;
+            color: #fff;
+            font-size: 32px;
+            border-radius: 10px;
+        }
+
+        .prompt-cover {
+            display: none;
+            position: fixed;
+            width: 750px;
+            height: 1334px;
+            background: rgba(78, 78, 78, 0.7);
+            top: 0;
+        }
+
+        .prompt-cover-browser {
+            margin-top: 50px;
+        }
+
+        .prompt-cover-browser > img {
+            margin-left: 626px;
+        }
+
+        .prompt-cover-description {
+            text-align: center;
+            font-size: 40px;
+            color: white;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <div class="content-container">
+            <button class="open" onclick="openAppClick();">打开</button>
+        </div>
+    </div>
+    <div class="prompt-cover" id="prompt-id">
+        <div class="prompt-cover-browser">
+            <img src="img/open_browser.png">
+        </div>
+        <div class="prompt-cover-description">
+            选择右上角->浏览器打开
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+
+    function isWeixinBrowser(){
+        return /micromessenger/.test(navigator.userAgent.toLowerCase());
+    }
+
+    //判断是不是QQ浏览器
+    function isQQBrowser(){
+        var UA = navigator.userAgent;
+        return UA.match(/QQ\//i) == "QQ/";
+    }
+
+    var openAppClick = function() {
+        document.getElementById("prompt-id").style.display = "block";
+    };
+
+    // default action
+    (function() {
+        if (!isWeixinBrowser() && !isQQBrowser()) {
+            window.location.href = 'http://365vv.com';
+            //window.open('https://www.baidu.com/index.php?tn=baidudg');
+        }
+    })();
+
+</script>
+</html>
